@@ -1,6 +1,6 @@
 import React from "react";
 
-function Home(props) {
+function Campaign(props) {
     return (
         <div>
             Hi
@@ -8,4 +8,4 @@ function Home(props) {
     )
 }
 
-export default Home;
+export default Campaign;
