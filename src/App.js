@@ -11,8 +11,10 @@ function App() {
     <Router>
       <div>
         <Switch>
-          <PrivateRoute exact path="/home" component={Home} />
+          <PrivateRoute exact path="/" component={Home} />
+          <PrivateRoute exact path="/campaign/:id" component={Campaign} />
           <Route exact path="/login" component={Login} />
+
         </Switch>
       </div>
     </Router>
