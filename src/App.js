@@ -10,7 +10,7 @@ function App() {
   return(
     <div className="App">
       <div className='header'>
-      <h1><i class="fas fa-key"></i><span>key</span>Conservation</h1>
+      <h1><i className="fas fa-key key"></i><span>key</span>Conservation</h1>
       <Route exact path='/' component={NewsFeed} />
       <Route path='/donations' component={Donations} />
       <Route path='/contact' component={Contact} />
