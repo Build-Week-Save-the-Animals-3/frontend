@@ -1,4 +1,4 @@
-import { axiosWithAuth } from "../components/axiosAuth";
+import axiosWithAuth from "../components/axiosAuth";
 import axios from "axios";
 
 export const FETCH_SUPPORTER_LOGIN_SUCCESS = "FETCH_SUPPORTER_LOGIN_SUCCESS";
@@ -19,6 +19,12 @@ export const EDIT_CAMPAIGN_START = "EDIT_CAMPAIGN_START";
 export const DELETE_CAMPAIGN_SUCCESS = "DELETE_CAMPAIGN_SUCCESS";
 export const DELETE_CAMPAIGN_FAILURE = "DELETE_CAMPAIGN_FAILURE";
 export const DELETE_CAMPAIGN_START = "DELETE_CAMPAIGN_START";
+export const REGISTER_ORGANIZATION_SUCCESS = "REGISTER_ORGANIZATION_SUCCESS";
+export const REGISTER_ORGANIZATION_FAILURE = "REGISTER_ORGANIZATION_FAILURE";
+export const REGISTER_ORGANIZATION_START = "REGISTER_ORGANIZATION_START";
+export const REGISTER_SUPPORTER_SUCCESS = "REGISTER_SUPPORTER_SUCCESS";
+export const REGISTER_SUPPORTER_FAILURE = "REGISTER_SUPPORTER_FAILURE";
+export const REGISTER_SUPPORTER_START = "REGISTER_SUPPORTER_START";
 
 export const getSupporterLogin = credentials => dispatch => {
     dispatch({ type: FETCH_SUPPORTER_LOGIN_START});
@@ -77,6 +83,36 @@ export const submitCampaign = credentials => dispatch => {
             .catch(error => {
                 console.log(error);
                 dispatch({ type: SUBMIT_CAMPAIGN_FAILURE, payload: error})
+            })
+    }
+}
+
+export const registerSupporter = credentials => dispatch => {
+    dispatch({ type: REGISTER_SUPPORTER_START });
+    return function(dispatch) {
+        return axios.post("urlhere", credentials)
+            .then(res => {
+                console.log(res);
+                dispatch({ type: REGISTER_SUPPORTER_SUCCESS, payload: res.data})
+            })
+            .catch(error => {
+                console.log(error);
+                dispatch({ type: REGISTER_SUPPORTER_FAILURE, payload: error})
+            })
+    }
+}
+
+export const registerOrganization = credentials => dispatch => {
+    dispatch({ type: REGISTER_ORGANIZATION_START });
+    return function(dispatch) {
+        return axios.post("urlhere", credentials)
+            .then(res => {
+                console.log(res);
+                dispatch({ type: REGISTER_ORGANIZATION_SUCCESS, payload: res.data })
+            })
+            .catch(error => {
+                console.log(error);
+                dispatch({ type: REGISTER_ORGANIZATION_FAILURE, payload: error})
             })
     }
 }

@@ -13,17 +13,19 @@ function Home(props) {
     
     return (
         <div>
-            {props.campaigns.map(i => {
+            {/*props.campaigns.map(i => {
                 return (
                     <div>
                         <Campaign id={i.id} key={i.id} title={i.title} location={i.location} description={i.description} species={i.species} urgency={i.urgency} 
                         donations={i.donationsNow} goal={i.campaignGoal} />
                     </div>  
                 )
-            })}
+            })*/}
+            Hello
         </div>
     )
 }
+
 
 const MapStateToProps = state => {
     return {
