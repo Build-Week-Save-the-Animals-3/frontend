@@ -1,4 +1,17 @@
 .App {
   text-align: center;
-  border: 1px solid black;
+  margin-top: 2px;
+	font-size: 1.5rem;
+	
+	.header{
+		width: 100%;
+		height: 15vh;
+	}
+
+	i{
+		background-color: black;
+		color: white;
+		padding: 5px;
+		border-radius: 12px;
+	}
 }
