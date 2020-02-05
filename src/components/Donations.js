@@ -17,27 +17,23 @@ export default function Donations() {
                 </Jumbotron>
             </section>
             <section className='donations-container'>
-                <h2>Make your donation</h2>
-                <div className='btn-container'>
-                    <div>
-                        <Button>$1</Button>
-                    </div>
-                    <div>
-                        <Button>$3</Button>
-                    </div>
-                    <div>
-                        <Button>$7</Button>
-                    </div>
-                    <div>
-                        <Button>$10</Button>
-                    </div>
-                    <div>
-                        <Button>$15</Button>
-                    </div>
-                    <div>
-                        <Button>$20</Button>
-                    </div>
-                </div>
+                Donate Now
+                <form className='btn-container'>
+                    <Button>$5</Button>
+                    <Button>$10</Button>
+                    <Button>$25</Button>
+                    <Button>$50</Button>
+                    <input 
+                    className='input'
+                    id="donation"
+                    type="number"
+                    name="donation"
+                    min="1" 
+                    max="500"
+                    placeholder='$ Other amount'
+                    />
+                    <Button className='donate-btn'>Donate</Button>
+                </form>
             </section>
         </div>
     )
