@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {Jumbotron} from 'reactstrap';
+import {Jumbotron, Button} from 'reactstrap';
 
 export default function Donations() {
     return (
@@ -17,7 +17,23 @@ export default function Donations() {
                 </Jumbotron>
             </section>
             <section className='donations-container'>
-
+                Donate Now
+                <form className='btn-container'>
+                    <Button>$5</Button>
+                    <Button>$10</Button>
+                    <Button>$25</Button>
+                    <Button>$50</Button>
+                    <input 
+                    className='input'
+                    id="donation"
+                    type="number"
+                    name="donation"
+                    min="1" 
+                    max="500"
+                    placeholder='$ Other amount'
+                    />
+                    <Button className='donate-btn'>Donate</Button>
+                </form>
             </section>
         </div>
     )
