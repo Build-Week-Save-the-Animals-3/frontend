@@ -19,7 +19,7 @@ export default function Oppurtunities() {
                     <div class='info-box'>
                         <div>
                             <h3><i class="fas fa-bullhorn"></i> Rallies</h3>
-                            <p>Be the voice in your community helping to bring a change to the species in danger of extinction</p>
+                            <p>Be the voice in your community helping to make a difference on the front lines of conservation efforts!</p>
                         </div>
                     </div>
                     <div>
@@ -30,7 +30,7 @@ export default function Oppurtunities() {
             <hr/>
             <section>
                 <h2 className='signUp'><Link to='/contact'>SIGN UP NOW</Link></h2>
-                <p className='signUp-p'>Receive real-time updates on what's going on in your neighborhood or wherever you may be when you sign up using our contact form.</p>
+                <p className='signUp-p'>Receive real-time updates on what's going on in your community or wherever you are when you stay connected.</p>
             </section>
         </div>
     )
