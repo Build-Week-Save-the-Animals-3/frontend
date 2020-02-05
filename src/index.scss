@@ -176,6 +176,7 @@ table {
 	
 	hr{
 		border: 1px solid black;
+		opacity: 0.5;
 	}
 
 	.signUp{
@@ -190,6 +191,7 @@ table {
 	.signUp-p{
 		width: 65%;
 		margin: 0 auto;
+		margin-bottom: 5%;
 	}
 
 } // opp-container
@@ -221,5 +223,26 @@ div{
 			color: sienna;
 		}
 
+	}
+}
+
+// Contacts //
+
+.big{
+	margin-top: 2%;
+	width: 45%;
+	margin: 2% auto;
+	padding: 3%;
+	border-radius: 5px;
+
+	h2{
+		font-size: 2rem;
+		font-weight: bold;
+		font-family:'Sigmar One', cursive;
+		margin-bottom: 2%;
+	}
+
+	p{
+		font-family:'Sigmar One', cursive;
 	}
 }

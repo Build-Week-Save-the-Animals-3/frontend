@@ -9,6 +9,12 @@ export default function Donations() {
                 <Link to='/oppurtunities'>Oppurtunities</Link>
                 <Link to='/contact'>Contact Us</Link>
             </nav>
+            <section>
+                <Jumbotron className='big'>
+                    <h2>Get Involved!</h2>
+                    <p>Get involved in the movement when you contact us!</p>
+                </Jumbotron>
+            </section>
         </div>
     )
 }
