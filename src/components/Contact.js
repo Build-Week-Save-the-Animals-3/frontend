@@ -1,9 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {Jumbotron} from 'reactstrap';
-import { withFormik, Form, Field } from 'formik';
 
-function Contact({values, errors, touched, status}) {
+function Contact() {
     return (
         <div>
             <nav className='nav-bar'>
@@ -17,11 +16,11 @@ function Contact({values, errors, touched, status}) {
                     <p>Get involved in the movement when you contact us!</p>
                 </Jumbotron>
             </section>
-            <Form>
+            <form>
                 <label htmlFor='firstname'>
                     First *
 
-                    <Field 
+                    <input 
                     className='input'
                     id="firstname"
                     type="text"
@@ -29,15 +28,11 @@ function Contact({values, errors, touched, status}) {
                     placeholder='first name'
                     />
 
-                    {touched.firstname && errors.firstname && (
-                    <p className="errors">{errors.firstname}</p>
-                    )}
-
                 </label>
                 <label htmlFor='lastname'>
                     Last *
 
-                    <Field 
+                    <input 
                     className='input'
                     id="lastname"
                     type="text"
@@ -45,20 +40,12 @@ function Contact({values, errors, touched, status}) {
                     placeholder="last name"
                     />
 
-                    {touched.lastname && errors.lastname && (
-                    <p className="errors">{errors.lastname}</p>
-                    )}
-
                 </label>
-            </Form>
+            </form>
         </div>
     )
 }
 
-const ContactForm= withFormik({mapPropsToValues(props){
-
-}})(Contact);
-
-export default ContactForm;
+export default Contact
 
 
