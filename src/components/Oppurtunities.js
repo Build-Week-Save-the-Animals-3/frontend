@@ -16,9 +16,9 @@ export default function Oppurtunities() {
             <hr/>
             <section className='rallies-sec'>
                 <div className='rallies'>
-                    <div class='info-box'>
+                    <div className='info-box'>
                         <div>
-                            <h3><i class="fas fa-bullhorn"></i> Rallies</h3>
+                            <h3><i className="fas fa-bullhorn"></i> Rallies</h3>
                             <p>Be the voice in your community helping to make a difference on the front lines of conservation efforts!</p>
                         </div>
                     </div>

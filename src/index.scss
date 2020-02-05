@@ -53,6 +53,14 @@ table {
 // NewsFeed //
 .news-container{
 
+	background-image: url(https://images.unsplash.com/flagged/photo-1576045771676-7ac070c1ce72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80);
+
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	padding: 2%;
+	border-radius: 5px;
+
 	.nav-bar{
 		margin-top: 1%;
 		background-color: burlywood;
@@ -81,6 +89,7 @@ table {
 .opp-container{
 
 	margin: 0 auto;
+	
 
 	.nav-bar{
 		margin-top: 1%;
@@ -198,8 +207,7 @@ table {
 
 // Donations //
 
-div{
-
+.donation-pg{
 
 	.nav-bar{
 		margin-top: 1%;
@@ -227,14 +235,14 @@ div{
 
 	.donations-container{
 		// border: 1px solid black;
-		background-color: aqua;
+		background-color: #F1BB87;
 		height: 200px;
 		width: 30%;
-		padding: 1%;
+		padding: 3%;
 		margin: 0 auto;
 		border-radius: 5px;
 		box-shadow: 0px 7px 13px rgba(0, 0, 0, 0.4);
-		color: purple;
+		color: white;
 	
 
 		h2{
@@ -249,6 +257,21 @@ div{
 			width: 50%;
 			height: 100px;
 			margin: 7% auto;
+
+			#five, #ten, #twenty-five, #one-hundred{
+				font-size: 1rem;
+				margin-bottom: 5%;
+				border-radius: 4px;
+				padding: 2%;
+				width: 27%;
+			}
+
+			#five:hover, #ten:hover, #twenty-five:hover, #one-hundred:hover{
+				cursor: pointer;
+				background-color: salmon;
+				color: white;
+				box-shadow: 0px 7px 13px rgba(0, 0, 0, 0.2);
+			}
 
 			input{
 				margin-bottom: 5%;
@@ -286,6 +309,31 @@ div{
 // Contacts //
 
 
+
+.nav-bar{
+	margin-top: 1%;
+	padding: 3px;
+	border-radius: 3px;
+	background-color: burlywood;
+	display: flex;
+	justify-content: space-evenly;
+	margin-right: 2%;
+	margin-left: 2%;
+
+	a{
+		text-decoration: none;
+		color: black;
+		font-size: 1.2rem;
+		padding: 2px;
+		font-weight: 400;
+	}
+
+	a:hover{
+		color: sienna;
+	}
+
+} // nav-bar
+
 .big{
 	margin-top: 2%;
 	width: 45%;
@@ -313,8 +361,8 @@ div{
 	width: 35%;
 	padding: 2%;
 	border-radius: 5px;
-	color: purple;
-	background-color: aqua;
+	color: white;
+	background-color: #F1BB87;
 	box-shadow: 0px 7px 13px rgba(0, 0, 0, 0.4);
 	
 
@@ -345,6 +393,43 @@ div{
 	}
 } // contact form
 
+
+
+
+
+// Newsfeed Card //
+
+.card-container{
+	display: flex;
+	justify-content: center;
+	margin-top: 3%;
+
+	.card-link{
+		text-decoration: none;
+		color: black;
+		width: 50%;
+	}
+
+	.Card{
+		font-family: sans-serif;
+		border-radius: 3px;
+		padding: 2%;
+		box-shadow: 0px 7px 13px rgba(0, 0, 0, 0.5);
+		background-color: white;
+
+		span{
+			font-weight: bold;
+		}
+
+		h3{
+			font-size: 1.5rem;
+		}
+
+		p{
+			font-size: 1.2rem;
+		}
+	}
+}
 
 
 

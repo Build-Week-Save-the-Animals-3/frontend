@@ -4,7 +4,7 @@ import {Jumbotron, Button} from 'reactstrap';
 
 export default function Donations() {
     return (
-        <div>
+        <div className='donation-pg'>
             <nav className='nav-bar'>
                 <Link to='/'>Newsfeed</Link>
                 <Link to='/oppurtunities'>Oppurtunities</Link>
@@ -19,11 +19,11 @@ export default function Donations() {
             <section className='donations-container'>
                 Donate Now
                 <form className='btn-container'>
-                    <Button>$5</Button>
-                    <Button>$10</Button>
-                    <Button>$25</Button>
-                    <Button>$50</Button>
-                    <input 
+                    <input id='five' name='five' type='button' value='$5'/>
+                    <input id='ten' name='ten' type='button' value='$10'/>
+                    <input id='twenty-five' name='twenty-five' type='button' value='$25'/>
+                    <input id='one-hundred' name='one-hundred' type='button' value='$100'/>
+                    <input
                     className='input'
                     id="donation"
                     type="number"
@@ -32,7 +32,7 @@ export default function Donations() {
                     max="500"
                     placeholder='$ Other amount'
                     />
-                    <Button className='donate-btn'>Donate</Button>
+                    <Button type='submit' className='donate-btn'>Donate</Button>
                 </form>
             </section>
         </div>
