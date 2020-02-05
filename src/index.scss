@@ -1,0 +1,248 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 62.5%;
+  font: inherit;
+  font-family: sans-serif, serif;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1.5;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+///////////////////////////////////////////////
+
+// NewsFeed //
+.news-container{
+
+	.nav-bar{
+		margin-top: 1%;
+		background-color: burlywood;
+		border-radius: 3px;
+		display: flex;
+		justify-content: space-evenly;
+		margin-right: 2%;
+		margin-left: 2%;
+
+		a{
+			text-decoration: none;
+			color: black;
+			font-size: 1.2rem;
+			padding: 2px;
+		}
+
+		a:hover{
+			color: sienna;
+		}
+
+	}
+}
+
+// Oppurtunities //
+
+.opp-container{
+
+	margin: 0 auto;
+
+	.nav-bar{
+		margin-top: 1%;
+		display: flex;
+		border-radius: 3px;
+		background-color: burlywood;
+		justify-content: space-evenly;
+		margin-bottom: 2%;
+		margin-right: 2%;
+		margin-left: 2%;
+
+		a{
+			text-decoration: none;
+			color: black;
+			font-size: 1.2rem;
+			padding: 2px;
+			font-weight: 400;
+		}
+
+		a:hover{
+			border-radius: 10px;
+			color: sienna;
+		}
+
+	}
+
+	.bg-img{
+		background-image: url(https://images.unsplash.com/photo-1483428400520-675ef69a3bc4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2767&q=80);
+
+		background-repeat: no-repeat;
+		width: 100%;
+		height: 50vh;
+		background-size: cover;
+		background-position: center;
+		border-radius: 3px;
+
+	}
+
+	h2{
+		margin-top: 5%;
+		margin-bottom: 10%;
+		text-align: center;
+		font-size: 1.7rem;
+		font-weight: 400;
+	}
+
+	.rallies-sec{
+
+		display: flex;
+		justify-content: center;
+
+		.info-box{
+			display: flex;
+			align-items: center;
+		}
+
+		.rallies{
+			display: flex;
+			// border: 1px solid red;
+			width: 70%;
+			padding: 3%;
+			justify-content: center;
+			background-color: blanchedalmond;
+			border-radius: 10px;
+			margin-top: 3%;
+			margin-bottom: 3%;
+	
+			p{
+				margin-left: 5%;
+				font-size: 1.5rem;
+				font-weight: 400;
+				margin-top: 2%;
+				// border: 1px solid red;
+			}
+	
+			h3{
+				font-size: 1.7rem;
+				margin-left: 5%;
+				// border: 1px solid red;
+				color: skyblue;
+				font-weight: bold;
+			}
+		} // rallies
+
+		.hands{
+			width: 90%;
+			margin-top: 1%;
+			border-radius: 3px;
+		}
+
+	} // rallies-sec
+	
+	
+	hr{
+		border: 1px solid black;
+		opacity: 0.5;
+	}
+
+	.signUp{
+		margin-top: 2%;
+		margin-bottom: 2%;
+	}
+
+	.signUp:hover{
+		opacity: 0.7;
+	}
+
+	.signUp-p{
+		width: 65%;
+		margin: 0 auto;
+		margin-bottom: 5%;
+	}
+
+} // opp-container
+
+// Donations //
+
+div{
+
+
+	.nav-bar{
+		margin-top: 1%;
+		padding: 3px;
+		border-radius: 3px;
+		background-color: burlywood;
+		display: flex;
+		justify-content: space-evenly;
+		margin-right: 2%;
+		margin-left: 2%;
+
+		a{
+			text-decoration: none;
+			color: black;
+			font-size: 1.2rem;
+			padding: 2px;
+			font-weight: 400;
+		}
+
+		a:hover{
+			color: sienna;
+		}
+
+	}
+}
+
+// Contacts //
+
+.big{
+	margin-top: 2%;
+	width: 45%;
+	margin: 2% auto;
+	padding: 3%;
+	border-radius: 5px;
+
+	h2{
+		font-size: 2rem;
+		font-weight: bold;
+		font-family:'Sigmar One', cursive;
+		margin-bottom: 2%;
+	}
+
+	p{
+		font-family:'Sigmar One', cursive;
+	}
+}

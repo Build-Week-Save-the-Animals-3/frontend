@@ -60,7 +60,7 @@ export const getOrganizationLogin = credentials => dispatch => {
 export const getCampaigns = () => dispatch => {
     dispatch({ type: FETCH_CAMPAIGN_START });
     return function(dispatch) {
-        return axios.get("urlhere")
+        return axios.get("https://ptbw-sta-3.herokuapp.com/api/campaigns/")
             .then(res => {
                 console.log(res);
                 dispatch({ type: FETCH_CAMPAIGN_SUCCESS, payload: res.data})

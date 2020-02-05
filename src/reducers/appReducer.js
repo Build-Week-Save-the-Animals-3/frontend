@@ -18,23 +18,21 @@ export const initialState = {
     },
 
     organization: {
-        org: false,
-        username: "",
-        password: "",
-        loggedIn: false,
-        token: ""
+        id: null,
+        name: ""
     },
     
     campaigns: [
         {
+            id: null,
             title: "",
-            location: "",
             description: "",
-            species: "",
-            urgency: null,
-            donationsNow: null,
-            campaignGoal: null,
-            id: null
+            urgency_level: null,
+            location: "",
+            deadline: "",
+            fund_goal: null,
+            completed: false
+            
         }
     ]
 }
