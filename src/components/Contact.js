@@ -1,10 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {Jumbotron} from 'reactstrap';
+import {Jumbotron, Button} from 'reactstrap';
 
 function Contact() {
     return (
-        <div>
+        <div className='contact-container'>
             <nav className='nav-bar'>
                 <Link to='/'>Newsfeed</Link>
                 <Link to='/donations'>Donations</Link>
@@ -16,9 +16,9 @@ function Contact() {
                     <p>Get involved in the movement when you contact us!</p>
                 </Jumbotron>
             </section>
-            <form>
+            <form className='contact-form'>
+                Contact Information
                 <label htmlFor='firstname'>
-                    First *
 
                     <input 
                     className='input'
@@ -30,7 +30,6 @@ function Contact() {
 
                 </label>
                 <label htmlFor='lastname'>
-                    Last *
 
                     <input 
                     className='input'
@@ -41,6 +40,21 @@ function Contact() {
                     />
 
                 </label>
+                <label htmlFor='email'>
+
+                    <input 
+                    className='input'
+                    id="email"
+                    type="text"
+                    name="email"
+                    placeholder="email@yahoo.com"
+                    />
+
+                </label>
+
+                <div className='btn'>
+                    <Button>Subscribe</Button>
+                </div>
             </form>
         </div>
     )
