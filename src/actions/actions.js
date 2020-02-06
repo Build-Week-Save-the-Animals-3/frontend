@@ -26,6 +26,9 @@ export const REGISTER_ORGANIZATION_START = "REGISTER_ORGANIZATION_START";
 export const REGISTER_SUPPORTER_SUCCESS = "REGISTER_SUPPORTER_SUCCESS";
 export const REGISTER_SUPPORTER_FAILURE = "REGISTER_SUPPORTER_FAILURE";
 export const REGISTER_SUPPORTER_START = "REGISTER_SUPPORTER_START";
+export const FETCH_SINGLE_CAMPAIGN_START = "FETCH_SINGLE_CAMPAIGN_START";
+export const FETCH_SINGLE_CAMPAIGN_SUCCESS = "FETCH_SINGLE_CAMPAIGN_SUCCESS";
+export const FETCH_SINGLE_CAMPAIGN_FAILURE = "FETCH_SINGLE_CAMPAIGN_FAILURE";
 
 export const getSupporterLogin = credentials => dispatch => {
     dispatch({ type: FETCH_SUPPORTER_LOGIN_START});
@@ -130,6 +133,19 @@ export const deleteCampaign = id => {
             })
             .catch(error => {
                 dispatch({ type: DELETE_CAMPAIGN_FAILURE, payload: error})
+            })
+    }
+}
+
+export const getCurrentCampaign = id => {
+    return dispatch => {
+        dispatch({ type: FETCH_SINGLE_CAMPAIGN_START })
+        axios.get(`https://ptbw-sta-3.herokuapp.com/api/campaigns/${id}`)
+            .then(res => {
+                dispatch({ type: FETCH_SINGLE_CAMPAIGN_SUCCESS, payload: res.data})
+            })
+            .catch(error => {
+                dispatch({ type: FETCH_SINGLE_CAMPAIGN_FAILURE, payload: error})
             })
     }
 }

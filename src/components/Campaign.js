@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
-import { deleteCampaign } from "../actions/actions";
+import { deleteCampaign, getCurrentCampaign } from "../actions/actions";
 
 const initialCampaign = {
     id: 0,
@@ -16,13 +16,14 @@ const initialCampaign = {
 }
 
 function Campaign(props) {
-    
+    console.log(props);
     let loggedIn = localStorage.getItem("token");
     const [campaign, setCampaign] = useState(initialCampaign);
     const [donate, setDonate] = useState({});
 
     useEffect(() => {
-        axios
+        props.getCurrentCampaign(props.match.params.id);
+        /*axios
             .get(`https://ptbw-sta-3.herokuapp.com/api/campaigns/${props.match.params.id}`)
             .then(response => {
                 console.log(response);
@@ -30,7 +31,7 @@ function Campaign(props) {
             })
             .catch(error => {
                 console.log(error);
-            })
+            })*/
     }, [])
 
     const routeToItem = event => {
@@ -41,7 +42,10 @@ function Campaign(props) {
     const deleteItem = event => {
         event.preventDefault();
         props.deleteCampaign(props.match.params.id);
-        props.history.push("/");
+        setTimeout(() => {
+            props.history.push("/");
+        }, 200)
+        
         /*axios
             .delete(`https://ptbw-sta-3.herokuapp.com/api/campaigns/${props.match.params.id}`)
             .then(response => {
@@ -75,12 +79,12 @@ function Campaign(props) {
     
         return (
             <div>
-                <h1>{campaign.title}</h1>
-                <h3>{campaign.description}</h3>
-                <div>{campaign.urgency_level}</div>
-                <div>{campaign.location}</div>
-                <div>{campaign.deadline}</div>
-                <div>{campaign.fund_goal}</div>
+                <h1>{props.currentCampaign.title}</h1>
+                <h3>{props.currentCampaign.description}</h3>
+                <div>{props.currentCampaign.urgency_level}</div>
+                <div>{props.currentCampaign.location}</div>
+                <div>{props.currentCampaign.deadline}</div>
+                <div>{props.currentCampaign.fund_goal}</div>
                 <button type="submit" onClick={routeToItem}>Update Campaign</button>
                 <button type="submit" onClick={deleteItem}>Delete Campaign</button>
                 
@@ -104,4 +108,4 @@ function Campaign(props) {
         }*/
 }
 
-export default connect(state => state, { deleteCampaign: deleteCampaign })(Campaign);
+export default connect(state => state, { deleteCampaign: deleteCampaign, getCurrentCampaign: getCurrentCampaign })(Campaign);

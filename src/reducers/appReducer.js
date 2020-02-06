@@ -2,7 +2,7 @@ import { FETCH_SUPPORTER_LOGIN_SUCCESS, FETCH_SUPPORTER_LOGIN_FAILURE, FETCH_SUP
     SUBMIT_CAMPAIGN_FAILURE, SUBMIT_CAMPAIGN_START, EDIT_CAMPAIGN_SUCCESS, EDIT_CAMPAIGN_FAILURE, EDIT_CAMPAIGN_START, DELETE_CAMPAIGN_START, DELETE_CAMPAIGN_SUCCESS, 
     DELETE_CAMPAIGN_FAILURE, FETCH_ORGANIZATION_LOGIN_SUCCESS, FETCH_ORGANIZATION_LOGIN_FAILURE, FETCH_ORGANIZATION_LOGIN_START, FETCH_CAMPAIGN_START, 
     REGISTER_ORGANIZATION_SUCCESS, REGISTER_ORGANIZATION_FAILURE, REGISTER_ORGANIZATION_START, REGISTER_SUPPORTER_SUCCESS, REGISTER_SUPPORTER_FAILURE,
-    REGISTER_SUPPORTER_START } from "../actions/actions";
+    REGISTER_SUPPORTER_START, FETCH_SINGLE_CAMPAIGN_FAILURE, FETCH_SINGLE_CAMPAIGN_SUCCESS,  FETCH_SINGLE_CAMPAIGN_START } from "../actions/actions";
 
 export const initialState = {
     
@@ -35,7 +35,18 @@ export const initialState = {
             completed: false
             
         }
-    ]
+    ],
+
+    currentCampaign: {
+        id: 100,
+        title: "Title",
+        description: "Description",
+        urgency_level: 1,
+        location: "Africa",
+        deadline: "July 21, 2020",
+        fund_goal: 2500,
+        completed: false
+    }
 }
 
 
@@ -187,6 +198,29 @@ export function reducer(state = initialState, action) {
                     isFetching: false,
                     response: action.payload,
                     campaigns: [state.campaigns.filter(i => i.id !== action.payload.id)]
+                }
+            case DELETE_CAMPAIGN_FAILURE:
+                return {
+                    ...state,
+                    isFetching: false,
+                    error: action.payload
+                }
+            case FETCH_SINGLE_CAMPAIGN_START:
+                return {
+                    ...state,
+                    isFetching: true,
+                }
+            case FETCH_SINGLE_CAMPAIGN_SUCCESS:
+                return {
+                    ...state,
+                    isFetching: false,
+                    currentCampaign: action.payload
+                }
+            case FETCH_SINGLE_CAMPAIGN_FAILURE:
+                return {
+                    ...state,
+                    isFetching: false,
+                    error: action.payload
                 }
         default:
             return state;

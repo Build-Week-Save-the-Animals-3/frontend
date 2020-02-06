@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { getCurrentCampaign } from "../actions/actions";
+import { connect } from "react-redux";
 
 const initialCampaign = {
     id: 0,
@@ -14,10 +16,11 @@ const initialCampaign = {
 }
 
 function UpdateCampaign(props) {
-    const [campaign, setCampaign] = useState(initialCampaign);
-
+    
     useEffect(() => {
-        axios
+        props.getCurrentCampaign(props.match.params.id);
+        
+        /*axios
             .get(`https://ptbw-sta-3.herokuapp.com/api/campaigns/${props.match.params.id}`)
             .then(response => {
                 console.log(response);
@@ -25,8 +28,12 @@ function UpdateCampaign(props) {
             })
             .catch(error => {
                 console.log(error);
-            })
+            })*/
     }, [])
+
+    const [campaign, setCampaign] = useState(props.currentCampaign);
+
+    
 
     const onChange = event => {
         setCampaign({...campaign, [event.target.name]: event.target.value })
@@ -62,4 +69,4 @@ function UpdateCampaign(props) {
     )
 }
 
-export default UpdateCampaign;
+export default connect(state => state, { getCurrentCampaign: getCurrentCampaign })(UpdateCampaign);
