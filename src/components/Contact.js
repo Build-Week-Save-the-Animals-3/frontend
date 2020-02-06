@@ -4,7 +4,7 @@ import {Jumbotron, Button} from 'reactstrap';
 
 function Contact() {
     return (
-        <div className='contact-container'>
+        <div className='contact-cont'>
             <nav className='nav-bar'>
                 <Link to='/'>Newsfeed</Link>
                 <Link to='/donations'>Donations</Link>
