@@ -1,39 +1,40 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import {Jumbotron, Button} from 'reactstrap';
+import {Form, Input} from 'reactstrap';
 
 export default function Donations() {
     return (
-        <div>
-            <nav className='nav-bar'>
+        <div className='donation-pg'>
+            {/* <nav className='nav-bar'>
                 <Link to='/'>Newsfeed</Link>
-                <Link to='/oppurtunities'>Oppurtunities</Link>
+                <Link to='/opportunities'>Opportunities</Link>
                 <Link to='/contact'>Contact Us</Link>
-            </nav>
+            </nav> */}
             <section>
                 <Jumbotron className='big'>
                     <h2>Help Hope Stay Alive!</h2>
-                    <p>With a kind donation you can help empower these organizations</p>
+                    <p>With a kind donation you can help empower this organization</p>
                 </Jumbotron>
             </section>
             <section className='donations-container'>
                 Donate Now
-                <form className='btn-container'>
-                    <Button>$5</Button>
-                    <Button>$10</Button>
-                    <Button>$25</Button>
-                    <Button>$50</Button>
-                    <input 
+                <Form className='btn-container'>
+                    <Input id='five' name='five' type='button' value='$5'/>
+                    <Input id='ten' name='ten' type='button' value='$10'/>
+                    <Input id='twenty-five' name='twenty-five' type='button' value='$25'/>
+                    <Input id='one-hundred' name='one-hundred' type='button' value='$100'/>
+                    <Input
                     className='input'
                     id="donation"
                     type="number"
                     name="donation"
-                    min="1" 
-                    max="500"
+                    min="0" 
+                    max="100000" 
+                    step="5"
                     placeholder='$ Other amount'
                     />
-                    <Button className='donate-btn'>Donate</Button>
-                </form>
+                    <Button type='submit' className='donate-btn'>Donate</Button>
+                </Form>
             </section>
         </div>
     )

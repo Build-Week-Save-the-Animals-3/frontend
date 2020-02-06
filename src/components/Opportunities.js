@@ -1,12 +1,11 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-export default function Oppurtunities() {
+export default function Opportunities() {
     return (
         <div className='opp-container'>
             <nav className='nav-bar'>
                 <Link to='/'>Newsfeed</Link>
-                <Link to='/donations'>Donations</Link>
                 <Link to='/contact'>Contact Us</Link>
             </nav>
             <div className='bg-img'></div>
@@ -16,9 +15,9 @@ export default function Oppurtunities() {
             <hr/>
             <section className='rallies-sec'>
                 <div className='rallies'>
-                    <div class='info-box'>
+                    <div className='info-box'>
                         <div>
-                            <h3><i class="fas fa-bullhorn"></i> Rallies</h3>
+                            <h3><i className="fas fa-bullhorn"></i> Rallies</h3>
                             <p>Be the voice in your community helping to make a difference on the front lines of conservation efforts!</p>
                         </div>
                     </div>
