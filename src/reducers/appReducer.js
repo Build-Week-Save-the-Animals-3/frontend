@@ -8,6 +8,7 @@ export const initialState = {
     
     isFetching: false,
     error: "",
+    response: "",
 
     supporter: {
         support: false,
@@ -24,13 +25,13 @@ export const initialState = {
     
     campaigns: [
         {
-            id: null,
-            title: "",
-            description: "",
-            urgency_level: null,
-            location: "",
-            deadline: "",
-            fund_goal: null,
+            id: 100,
+            title: "Title",
+            description: "Description",
+            urgency_level: 1,
+            location: "Africa",
+            deadline: "July 21, 2020",
+            fund_goal: 2500,
             completed: false
             
         }
@@ -110,7 +111,7 @@ export function reducer(state = initialState, action) {
                 return {
                     ...state,
                     isFetching: false,
-                    campaigns: action.payload
+                    campaigns: [...state.campaigns, action.payload]
                 }
             case SUBMIT_CAMPAIGN_FAILURE:
                 return {
@@ -157,6 +158,35 @@ export function reducer(state = initialState, action) {
                     ...state,
                     isFetching: false,
                     error: action.payload
+                }
+            case EDIT_CAMPAIGN_START:
+                return {
+                    ...state,
+                    isFetching: true
+                }
+            case EDIT_CAMPAIGN_SUCCESS:
+                return {
+                    ...state,
+                    isFetching: false,
+
+                }
+            case EDIT_CAMPAIGN_FAILURE:
+                return {
+                    ...state,
+                    isFetching: false,
+                    error: action.payload
+                }
+            case DELETE_CAMPAIGN_START:
+                return {
+                    ...state,
+                    isFetching: true,
+                }
+            case DELETE_CAMPAIGN_SUCCESS:
+                return {
+                    ...state,
+                    isFetching: false,
+                    response: action.payload,
+                    campaigns: [state.campaigns.filter(i => i.id !== action.payload.id)]
                 }
         default:
             return state;

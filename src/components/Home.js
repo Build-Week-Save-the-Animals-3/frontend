@@ -1,42 +1,33 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { getCampaigns } from "../actions/actions";
-import Campaign from "./Campaign";
+import Campaigns from "./Campaigns";
 
 function Home(props) {
-    
-    console.log(props);
     
     useEffect(() => {
         props.getCampaigns();
     }, [])
+     
     
+     console.log(props);
+
     return (
+        
         <div>
-            {/*props.campaigns.map(i => {
+            {props.campaigns.map(i => {
                 return (
-                    <div>
-                        <Campaign id={i.id} key={i.id} title={i.title} location={i.location} description={i.description} species={i.species} urgency={i.urgency} 
-                        donations={i.donationsNow} goal={i.campaignGoal} />
-                    </div>  
+                    <Campaigns id={i.id} key={i.id} title={i.title} location={i.location} description={i.description} urgency={i.urgency_level} 
+                    deadline={i.deadline} fund={i.fund_goal} completed={i.completed} />
+                      
                 )
-            })*/}
-            Hello
+            })}
+            
         </div>
+        
     )
+    
 }
 
 
-const MapStateToProps = state => {
-    return {
-        campaigns: state.campaigns
-    }
-}
-export default connect(MapStateToProps, { getCampaigns: getCampaigns })(Home);
-/*title: "",
-            location: "",
-            description: "",
-            species: "",
-            urgency: null,
-            donationsNow: null,
-            campaignGoal: null*/
+export default connect(state => state, { getCampaigns: getCampaigns })(Home);

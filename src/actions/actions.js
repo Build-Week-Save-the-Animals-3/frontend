@@ -1,5 +1,6 @@
 import axiosWithAuth from "../components/axiosAuth";
 import axios from "axios";
+import axioswithAuth from "../components/axiosAuth";
 
 export const FETCH_SUPPORTER_LOGIN_SUCCESS = "FETCH_SUPPORTER_LOGIN_SUCCESS";
 export const FETCH_SUPPORTER_LOGIN_FAILURE = "FETCH_SUPPORTER_LOGIN_FAILURE";
@@ -57,34 +58,37 @@ export const getOrganizationLogin = credentials => dispatch => {
     }
 }
 
-export const getCampaigns = () => dispatch => {
-    dispatch({ type: FETCH_CAMPAIGN_START });
-    return function(dispatch) {
-        return axios.get("https://ptbw-sta-3.herokuapp.com/api/campaigns/")
+
+export const getCampaigns = () => {
+    return dispatch => {
+        dispatch({ type: FETCH_CAMPAIGN_START })
+        axios
+            .get("https://ptbw-sta-3.herokuapp.com/api/campaigns/")
             .then(res => {
                 console.log(res);
-                dispatch({ type: FETCH_CAMPAIGN_SUCCESS, payload: res.data})
+                dispatch({ type: FETCH_CAMPAIGN_SUCCESS, payload: res.data })
             })
             .catch(error => {
                 console.log(error);
-                dispatch({ type: FETCH_CAMPAIGN_FAILURE, payload: error})
+                dispatch({ type: FETCH_CAMPAIGN_FAILURE, payload: error })
             })
     }
 }
 
-export const submitCampaign = credentials => dispatch => {
-    dispatch({ type: SUBMIT_CAMPAIGN_START });
-    return function(dispatch) {
-        return axiosWithAuth.post("urlhere", credentials)
+export const submitCampaign = credentials =>  {
+    return dispatch => {
+        dispatch({ type: SUBMIT_CAMPAIGN_START })
+        axios.post("https://ptbw-sta-3.herokuapp.com/api/campaigns", credentials)
             .then(res => {
                 console.log(res);
-                dispatch({ type: SUBMIT_CAMPAIGN_SUCCESS, payload: res.data})
+                dispatch({ type: SUBMIT_CAMPAIGN_SUCCESS, payload: res.data })
             })
             .catch(error => {
                 console.log(error);
                 dispatch({ type: SUBMIT_CAMPAIGN_FAILURE, payload: error})
             })
     }
+    
 }
 
 export const registerSupporter = credentials => dispatch => {
@@ -113,6 +117,19 @@ export const registerOrganization = credentials => dispatch => {
             .catch(error => {
                 console.log(error);
                 dispatch({ type: REGISTER_ORGANIZATION_FAILURE, payload: error})
+            })
+    }
+}
+
+export const deleteCampaign = id => {
+    return dispatch => {
+        dispatch({ type: DELETE_CAMPAIGN_START })
+        axios.delete(`https://ptbw-sta-3.herokuapp.com/api/campaigns/${id}`)
+            .then(response => {
+                dispatch({ type: DELETE_CAMPAIGN_SUCCESS, payload: response})
+            })
+            .catch(error => {
+                dispatch({ type: DELETE_CAMPAIGN_FAILURE, payload: error})
             })
     }
 }

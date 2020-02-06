@@ -1,21 +1,29 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import PrivateRoute from "./components/PrivateRoute";
 import Campaign from "./components/Campaign";
 import Register from "./components/Register";
+import UpdateCampaign from "./components/UpdateCampaign";
+import NewCampaign from './components/NewCampaign';
 
 function App() {
   return (
     <Router>
       <div>
         <Switch>
-          <PrivateRoute exact path="/" component={Home} />
-          <PrivateRoute exact path="/campaign/:id" component={Campaign} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/campaign/:id" render={props => {
+            return <Campaign {...props} />
+          }} />
+          <Route exact path="/update-campaign/:id" render={props => {
+            return <UpdateCampaign {...props} />
+          }} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
+          <Route exact path="/create-campaign" component={NewCampaign} />
 
         </Switch>
       </div>
