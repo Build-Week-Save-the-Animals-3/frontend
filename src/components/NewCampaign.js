@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 import { submitCampaign } from "../actions/actions";
@@ -24,7 +24,7 @@ function NewCampaign(props) {
 
     const onSubmit = event => {
         event.preventDefault();
-        axiosWithAuth()
+        axios
             .post("https://ptbw-sta-3.herokuapp.com/api/campaigns", campaign)
             .then(response => {
                 console.log(response);

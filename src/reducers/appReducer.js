@@ -25,27 +25,27 @@ export const initialState = {
     
     campaigns: [
         {
-            id: 100,
-            title: "Title",
-            description: "Description",
-            urgency_level: 1,
-            location: "Africa",
-            deadline: "July 21, 2020",
-            fund_goal: 2500,
+            id: null,
+            title: "",
+            description: "",
+            urgency_level: null,
+            location: "",
+            deadline: "",
+            fund_goal: null,
             completed: false
             
         }
     ],
 
     currentCampaign: {
-        id: 100,
-        title: "Title",
-        description: "Description",
-        urgency_level: 1,
-        location: "Africa",
-        deadline: "July 21, 2020",
-        fund_goal: 2500,
-        completed: false
+        id: null,
+            title: "",
+            description: "",
+            urgency_level: null,
+            location: "",
+            deadline: "",
+            fund_goal: null,
+            completed: false
     }
 }
 
