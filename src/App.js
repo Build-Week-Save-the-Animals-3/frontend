@@ -8,6 +8,8 @@ import Campaign from "./components/Campaign";
 import Register from "./components/Register";
 import UpdateCampaign from "./components/UpdateCampaign";
 import NewCampaign from './components/NewCampaign';
+import NewsFeed from './components/NewsFeed';
+import Contact from "./components/Contact";
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/create-campaign" component={NewCampaign} />
+          <Route exacth path="/newsfeed" component={NewsFeed} />
+          <Route exact path="/contact" component={Contact} />
 
         </Switch>
       </div>

@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { getCampaigns } from "../actions/actions";
 import Campaigns from "./Campaigns";
+import "../index.scss";
+import { Link } from "react-router-dom";
 
 function Home(props) {
     
@@ -13,16 +15,21 @@ function Home(props) {
      console.log(props);
 
     return (
-        
-        <div>
-            {props.campaigns.map(i => {
-                return (
-                    <Campaigns id={i.id} key={i.id} title={i.title} location={i.location} description={i.description} urgency={i.urgency_level} 
-                    deadline={i.deadline} fund={i.fund_goal} completed={i.completed} />
-                      
-                )
-            })}
-            
+        <div className='news-container'>
+            <nav className='nav-bar'>
+                <Link to='/opportunities'>Opportunities</Link>
+                <Link to='/contact'>Contact Us</Link>
+            </nav>
+            <div>
+                {props.campaigns.map(i => {
+                    return (
+                        <Campaigns id={i.id} key={i.id} title={i.title} location={i.location} description={i.description} urgency={i.urgency_level} 
+                        deadline={i.deadline} fund={i.fund_goal} completed={i.completed} />
+                        
+                    )
+                })}
+                
+            </div>
         </div>
         
     )

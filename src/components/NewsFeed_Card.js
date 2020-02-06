@@ -1,6 +1,7 @@
 import React from 'react';
 import {Card} from 'reactstrap';
 import {Link} from 'react-router-dom';
+import "../index.scss";
 
 export default function NewsFeed_Card(props) {
 

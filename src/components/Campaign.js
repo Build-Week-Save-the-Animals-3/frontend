@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 import { deleteCampaign, getCurrentCampaign } from "../actions/actions";
+import "../index.scss";
+import { Link } from "react-router-dom";
 
 const initialCampaign = {
     id: 0,
@@ -78,16 +80,25 @@ function Campaign(props) {
 
     
         return (
-            <div>
-                <h1>{props.currentCampaign.title}</h1>
-                <h3>{props.currentCampaign.description}</h3>
-                <div>{props.currentCampaign.urgency_level}</div>
-                <div>{props.currentCampaign.location}</div>
-                <div>{props.currentCampaign.deadline}</div>
-                <div>{props.currentCampaign.fund_goal}</div>
-                <button type="submit" onClick={routeToItem}>Update Campaign</button>
-                <button type="submit" onClick={deleteItem}>Delete Campaign</button>
+            <div className='news-container'>
+            <nav className='nav-bar'>
+                <Link to='/opportunities'>Opportunities</Link>
+                <Link to='/contact'>Contact Us</Link>
+            </nav>
+            
+            <div className="card-container">
+                <div className="Card">
+                    <h1>{props.currentCampaign.title}</h1>
+                    <h3>{props.currentCampaign.description}</h3>
+                    <div>{props.currentCampaign.urgency_level}</div>
+                    <div>{props.currentCampaign.location}</div>
+                    <div>{props.currentCampaign.deadline}</div>
+                    <div>{props.currentCampaign.fund_goal}</div>
+                    <button type="submit" onClick={routeToItem}>Update Campaign</button>
+                    <button type="submit" onClick={deleteItem}>Delete Campaign</button>
+                </div>
                 
+            </div>
             </div>
         )
      /*else {

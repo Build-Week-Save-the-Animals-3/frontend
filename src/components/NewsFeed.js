@@ -18,6 +18,9 @@ export default function NewsFeed() {
 
     }, []);
 
+    if(!campaign) {
+        return <div>Loading...</div>
+    } else {
     return (
         <div className='news-container'>
             <nav className='nav-bar'>
@@ -31,5 +34,6 @@ export default function NewsFeed() {
 
 
         </div>
-    )
+    
+    )}
 }
