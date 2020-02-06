@@ -2,7 +2,8 @@ import { FETCH_SUPPORTER_LOGIN_SUCCESS, FETCH_SUPPORTER_LOGIN_FAILURE, FETCH_SUP
     SUBMIT_CAMPAIGN_FAILURE, SUBMIT_CAMPAIGN_START, EDIT_CAMPAIGN_SUCCESS, EDIT_CAMPAIGN_FAILURE, EDIT_CAMPAIGN_START, DELETE_CAMPAIGN_START, DELETE_CAMPAIGN_SUCCESS, 
     DELETE_CAMPAIGN_FAILURE, FETCH_ORGANIZATION_LOGIN_SUCCESS, FETCH_ORGANIZATION_LOGIN_FAILURE, FETCH_ORGANIZATION_LOGIN_START, FETCH_CAMPAIGN_START, 
     REGISTER_ORGANIZATION_SUCCESS, REGISTER_ORGANIZATION_FAILURE, REGISTER_ORGANIZATION_START, REGISTER_SUPPORTER_SUCCESS, REGISTER_SUPPORTER_FAILURE,
-    REGISTER_SUPPORTER_START, FETCH_SINGLE_CAMPAIGN_FAILURE, FETCH_SINGLE_CAMPAIGN_SUCCESS,  FETCH_SINGLE_CAMPAIGN_START } from "../actions/actions";
+    REGISTER_SUPPORTER_START, FETCH_SINGLE_CAMPAIGN_FAILURE, FETCH_SINGLE_CAMPAIGN_SUCCESS,  FETCH_SINGLE_CAMPAIGN_START, FETCH_SEARCH_FAILURE,
+    FETCH_SEARCH_SUCCESS, FETCH_SEARCH_START } from "../actions/actions";
 
 export const initialState = {
     
@@ -46,7 +47,15 @@ export const initialState = {
             deadline: "",
             fund_goal: null,
             completed: false
-    }
+    },
+
+    filteredCampaigns: [
+        {
+
+        }
+    ]
+
+    
 }
 
 
@@ -217,6 +226,23 @@ export function reducer(state = initialState, action) {
                     currentCampaign: action.payload
                 }
             case FETCH_SINGLE_CAMPAIGN_FAILURE:
+                return {
+                    ...state,
+                    isFetching: false,
+                    error: action.payload
+                }
+            case FETCH_SEARCH_START:
+                return {
+                    ...state,
+                    isFetching: true
+                }
+            case FETCH_SEARCH_SUCCESS:
+                return {
+                    ...state,
+                    isFetching: false,
+                    filteredCampaigns: action.payload
+                }
+            case FETCH_SEARCH_FAILURE:
                 return {
                     ...state,
                     isFetching: false,

@@ -63,16 +63,17 @@ function UpdateCampaign(props) {
                 <Link to='/opportunities'>Opportunities</Link>
                 <Link to='/contact'>Contact Us</Link>
             </nav>
+
+            <h3 className="h3update">Edit your campaign information here!</h3>
         
-        
-            <form className='card-container Card' onSubmit={onSubmit}>
-                <input className="input" onChange={onChange} type="text" value={campaign.title} name="title" />
-                <input className="input" onChange={onChange} type="text" value={campaign.description} name="description" />
-                <input className="input" onChange={onChange} type="text" value={campaign.urgency_level} name="urgency_level" />
-                <input className="input" onChange={onChange} type="text" value={campaign.location} name="location" />
-                <input className="input" onChange={onChange} type="text" value={campaign.deadline} name="deadline" />
-                <input className="input" onChange={onChange} type="text" value={campaign.fund_goal} name="fund_goal" />
-                <button className="input" type="submit">Update Campaign</button>
+            <form className='input-body' onSubmit={onSubmit}>
+                <input className="inputmargin" onChange={onChange} type="text" value={campaign.title} name="title" />
+                <input className="inputmargin" onChange={onChange} type="text" value={campaign.description} name="description" />
+                <input className="inputmargin" onChange={onChange} type="text" value={campaign.urgency_level} name="urgency_level" />
+                <input className="inputmargin" onChange={onChange} type="text" value={campaign.location} name="location" />
+                <input className="inputmargin" onChange={onChange} type="text" value={campaign.deadline} name="deadline" />
+                <input className="inputmargin" onChange={onChange} type="text" value={campaign.fund_goal} name="fund_goal" />
+                <button className="button" type="submit">Update Campaign</button>
                 
             </form>
         

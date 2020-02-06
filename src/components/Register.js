@@ -22,24 +22,33 @@ function Register(props) {
             event.preventDefault();
             props.registerSupporter(info);
             console.log(info, check);
+            props.history.push("/");
         } else {
             event.preventDefault();
             props.registerOrganization(info);
             console.log(info, check);
+            props.history.push("/");
         }
     }
     if(!loggedIn) {
         return (
-            <form onSubmit={onSubmit}>
+            <div className='news-container'>
+            <nav className='nav-bar'>
+                <span>Save The Animals Project</span>
+            </nav>
+            <h3 className="h3update">Welcome to our app! Please create an account to see all of the amazing campaigns hoping to raise money to save the animals!</h3>
+            
+            <form className='input-body' onSubmit={onSubmit}>
                 <label>Username: </label>
-                <input onChange={onChange} type="text" placeholder="Username" name="username" />
+                <input className="inputmargin" onChange={onChange} type="text" placeholder="Username" name="username" />
                 <label>Password: </label>
-                <input onChange={onChange} type="password" placeholder="Password" name="password" />
+                <input className="inputmargin" onChange={onChange} type="password" placeholder="Password" name="password" />
                 <label>Organization? </label>
-                <input onChange={onChangeBox} type="checkbox" checked={check.checked} />
-                <button type="submit">Register</button>
+                <input className="inputmargin" onChange={onChangeBox} type="checkbox" checked={check.checked} />
+                <button className="button" type="submit">Register</button>
                 <Link to="/login">Need to login instead?</Link>
             </form>
+            </div>
         )
     } else {
         return (

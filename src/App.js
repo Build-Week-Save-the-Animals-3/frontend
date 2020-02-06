@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.scss';
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import Home from "./components/Home";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "./components/Login";
 import PrivateRoute from "./components/PrivateRoute";
 import Campaign from "./components/Campaign";
@@ -9,14 +8,15 @@ import Register from "./components/Register";
 import UpdateCampaign from "./components/UpdateCampaign";
 import NewCampaign from './components/NewCampaign';
 import NewsFeed from './components/NewsFeed';
-import Contact from "./components/Contact";
+import SearchForm from './components/SearchForm';
+import SearchedCampaigns from './components/SearchedCampaigns';
 
 function App() {
   return (
     <Router>
       <div>
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={NewsFeed} />
           <Route exact path="/campaign/:id" render={props => {
             return <Campaign {...props} />
           }} />
@@ -26,8 +26,10 @@ function App() {
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/create-campaign" component={NewCampaign} />
-          <Route exacth path="/newsfeed" component={NewsFeed} />
-          <Route exact path="/contact" component={Contact} />
+          <Route exact path="/search" render={props => {
+            return <SearchForm {...props} />
+          }} />
+          <Route exact path="/searchedresults" component={SearchedCampaigns} />
 
         </Switch>
       </div>

@@ -29,6 +29,9 @@ export const REGISTER_SUPPORTER_START = "REGISTER_SUPPORTER_START";
 export const FETCH_SINGLE_CAMPAIGN_START = "FETCH_SINGLE_CAMPAIGN_START";
 export const FETCH_SINGLE_CAMPAIGN_SUCCESS = "FETCH_SINGLE_CAMPAIGN_SUCCESS";
 export const FETCH_SINGLE_CAMPAIGN_FAILURE = "FETCH_SINGLE_CAMPAIGN_FAILURE";
+export const FETCH_SEARCH_START = "FETCH_SEARCH_START";
+export const FETCH_SEARCH_SUCCESS = "FETCH_SEARCH_SUCCESS";
+export const FETCH_SEARCH_FAILURE = "FETCH_SEARCH_FAILURE";
 
 export const getSupporterLogin = credentials => dispatch => {
     dispatch({ type: FETCH_SUPPORTER_LOGIN_START});
@@ -147,5 +150,14 @@ export const getCurrentCampaign = id => {
             .catch(error => {
                 dispatch({ type: FETCH_SINGLE_CAMPAIGN_FAILURE, payload: error})
             })
+    }
+}
+
+export const getSearchedCampaigns = data => {
+    return dispatch => {
+        dispatch({ type: FETCH_SEARCH_START })
+        if(data.length > 0) {
+            return dispatch({ type: FETCH_SEARCH_SUCCESS, payload: data})
+        } else return dispatch({ type: FETCH_SEARCH_FAILURE, payload: "The search came up empty!"})
     }
 }

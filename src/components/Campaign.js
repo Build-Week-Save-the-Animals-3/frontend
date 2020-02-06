@@ -82,8 +82,8 @@ function Campaign(props) {
         return (
             <div className='news-container'>
             <nav className='nav-bar'>
-                <Link to='/opportunities'>Opportunities</Link>
-                <Link to='/contact'>Contact Us</Link>
+                <Link to='/'>Home</Link>
+                <Link to='/search'>Search Campaigns</Link>
             </nav>
             
             <div className="card-container">

@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import "../index.scss";
 
 export default function NewsFeed_Card(props) {
-
+    
     return (
         <div className='card-container'>
             <Link to={`/campaign/${props.data.id}`} className='card-link'>
@@ -14,7 +14,7 @@ export default function NewsFeed_Card(props) {
                     <p> <span>Purpose:</span> {props.data.description} </p>
                     <p> <span>Urgency:</span> {props.data.urgency_level} </p>
                     <p> <span>Fund Goal:</span> ${props.data.fund_goal} </p> 
-                    <p> <span>Dead-line:</span> {props.data.deadline} </p> 
+                    <p> <span>Deadline:</span> {props.data.deadline} </p> 
                 </Card>
             </Link>
         </div>

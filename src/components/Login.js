@@ -23,32 +23,40 @@ function Login(props) {
             event.preventDefault();
             props.getSupporterLogin(credentials);
             console.log(credentials, check);
+            props.history.push("/")
             
         } else {
             event.preventDefault();
             props.getOrganizationLogin(credentials);
             console.log(credentials, check);
+            props.history.push("/")
             
         }
     }
 
     if(!loggedIn) {
         return (
-            <form onSubmit={onSubmit}>
+            <div className='news-container'>
+            <nav className='nav-bar'>
+                <span>Save The Animals Project</span>
+            </nav>
+            <h3 className="h3update">Welcome to our app! Here you can login with an existing account to help save the animals!</h3>
+            <form className="input-body" onSubmit={onSubmit}>
                 
                 <label>Username</label>
-                <input onChange={onChange} type="text" name="username" placeholder="Username" />
+                <input className="inputmargin" onChange={onChange} type="text" name="username" placeholder="Username" />
             
             
                 <label>Password</label>
-                <input onChange={onChange} type="password" name="password" placeholder="Password" />
+                <input className="inputmargin" onChange={onChange} type="password" name="password" placeholder="Password" />
             
                 <label>Organization?</label>
-                <input onChange={onChangeBox} type="checkbox" checked={check.checked} />
+                <input className="inputmargin" onChange={onChangeBox} type="checkbox" checked={check.checked} />
                 
-                <button type="submit">Login</button>
+                <button className="button" type="submit">Login</button>
                 <Link to="/register">Need to register instead?</Link>
             </form>
+            </div>
         )
     } else {
         return (
