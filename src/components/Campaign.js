@@ -1,16 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
-import {Collapse, Card, Button} from 'reactstrap';
 import Donations from './Donations';
 
 export default function Campaign(props) {
 
     const [campaigns, setCampaigns]= useState([]);
-
-    const [isOpen, setIsOpen] = useState(false);
-
-    const toggle = () => setIsOpen(!isOpen);
 
     const id= props.match.params.id;
 
@@ -38,7 +33,7 @@ export default function Campaign(props) {
                 <h3> <span>Urgency:</span> {campaigns.urgency_level} </h3>
                 <p> <span>Location:</span> {campaigns.location} </p>
                 <p> <span>Purpose:</span> {campaigns.description} </p>
-                <p> <span>Fund Goal:</span> {campaigns.fund_goal} </p>
+                <p> <span>Fund Goal:</span> ${campaigns.fund_goal} </p>
                 <p> <span>Dead-line:</span> {campaigns.deadline} </p>
             </div>
             <div>

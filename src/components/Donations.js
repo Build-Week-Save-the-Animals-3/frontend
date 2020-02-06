@@ -1,5 +1,6 @@
 import React from 'react';
 import {Jumbotron, Button} from 'reactstrap';
+import {Form, Input} from 'reactstrap';
 
 export default function Donations() {
     return (
@@ -17,22 +18,23 @@ export default function Donations() {
             </section>
             <section className='donations-container'>
                 Donate Now
-                <form className='btn-container'>
-                    <input id='five' name='five' type='button' value='$5'/>
-                    <input id='ten' name='ten' type='button' value='$10'/>
-                    <input id='twenty-five' name='twenty-five' type='button' value='$25'/>
-                    <input id='one-hundred' name='one-hundred' type='button' value='$100'/>
-                    <input
+                <Form className='btn-container'>
+                    <Input id='five' name='five' type='button' value='$5'/>
+                    <Input id='ten' name='ten' type='button' value='$10'/>
+                    <Input id='twenty-five' name='twenty-five' type='button' value='$25'/>
+                    <Input id='one-hundred' name='one-hundred' type='button' value='$100'/>
+                    <Input
                     className='input'
                     id="donation"
                     type="number"
                     name="donation"
-                    min="1" 
-                    max="500"
+                    min="0" 
+                    max="100000" 
+                    step="5"
                     placeholder='$ Other amount'
                     />
                     <Button type='submit' className='donate-btn'>Donate</Button>
-                </form>
+                </Form>
             </section>
         </div>
     )
