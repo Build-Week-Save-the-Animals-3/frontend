@@ -31,6 +31,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1.5;
+	
 }
 ol, ul {
 	list-style: none;
@@ -84,7 +85,7 @@ table {
 	}
 }
 
-// Oppurtunities //
+// Opportunities //
 
 .opp-container{
 
@@ -209,13 +210,7 @@ table {
 
 .donation-pg{
 
-	background-image: url(https://images.unsplash.com/flagged/photo-1576045771676-7ac070c1ce72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80);
-
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
-	padding: 2%;
-	border-radius: 5px;
+	color: white;
 
 	.nav-bar{
 		margin-top: 1%;
@@ -247,10 +242,9 @@ table {
 		height: 200px;
 		width: 30%;
 		padding: 3%;
-		margin: 0 auto;
+		margin: 3% auto;
 		border-radius: 5px;
 		box-shadow: 0px 7px 13px rgba(0, 0, 0, 0.4);
-		color: white;
 	
 
 		h2{
@@ -447,6 +441,36 @@ table {
 	}
 }
 
+// Campaign //
+
+.campaign-pg{
+
+	background-image: url(https://images.unsplash.com/flagged/photo-1576045771676-7ac070c1ce72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80);
+
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	padding: 2%;
+	border-radius: 5px;
 
 
+	.campaign-card{
+		border: 1px solid black;
+		box-shadow: 0px 7px 13px rgba(160, 48, 48, 0.5);
+		margin: 5% auto;
+		padding: 2%;
+		text-align: left;
+		width: 50%; 
+		border-radius: 5px;
+		background-color: white;
+	
+	}
+	
+	.campaign-btn{
+		padding: 1%;
+		border-radius: 4px;
+		font-size: 1rem;
+	}
+
+}
 
