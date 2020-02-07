@@ -5,12 +5,24 @@ import {Jumbotron, Button} from 'reactstrap';
 function Contact() {
 
 
-    const [contact, setContact]= useState('');
+    const [contact, setContact]= useState({
+        firstname: '',
+        lastname: '',
+        email: '',
+    });
 
     const handleChanges= event=> {
         event.preventDefault();
-        setContact(event.target.value);
-        console.log(event.target.value);
+        setContact({
+            ...contact,
+            [event.target.name]: event.target.value});
+        console.log({[event.target.name]: event.target.value});
+    }
+
+    const submitHandler= evt=> {
+        evt.preventDefault();
+        alert('We have received your information. Thank you!');
+        document.getElementById('contact-form').reset();
     }
 
 
@@ -26,7 +38,7 @@ function Contact() {
                     <p>Get involved in the movement when you contact us!</p>
                 </Jumbotron>
             </section>
-            <form className='contact-form'>
+            <form onSubmit={submitHandler} id='contact-form' className='contact-form'>
                 Contact Information
                 <label htmlFor='firstname'>
 
