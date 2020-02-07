@@ -44,15 +44,15 @@ export default function Post_Card() {
             <Form onSubmit={submitHandler} id='post-card' className='post-card'>
                 <FormGroup>
                     <Label htmlFor='title'>Campaign Title</Label> 
-                    <Input onChange={handleChanges} type='text' placeholder='Enter campaign name' name='title' id='title' />
+                    <Input onChange={handleChanges} required='required' type='text' placeholder='Enter campaign name' name='title' id='title' />
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor='description'>Purpose</Label> 
-                    <Input onChange={handleChanges} type='textarea' name='description' id='description' />
+                    <Input onChange={handleChanges} required='required' type='textarea' name='description' id='description' />
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor='urgency_level'>Urgency</Label> 
-                    <Input onChange={handleChanges} type='select' name='urgency_level' id='urgency_level'>
+                    <Input onChange={handleChanges} required='required' type='select' name='urgency_level' id='urgency_level'>
                     <option>Critical</option>
                     <option>Medium</option>
                     <option>Low</option>
@@ -60,15 +60,15 @@ export default function Post_Card() {
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor='location'>Location</Label> 
-                    <Input onChange={handleChanges} type='text' name='location' id='location' />
+                    <Input onChange={handleChanges} required='required' type='text' name='location' id='location' />
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor='deadline'>Dead-line</Label> 
-                    <Input onChange={handleChanges} type='date' name='deadline' id='deadline' />
+                    <Input onChange={handleChanges} required='required' type='date' name='deadline' id='deadline' />
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor='fund_goal'>Fund Goal $</Label> 
-                    <Input onChange={handleChanges} type='number' min="1" step='5'
+                    <Input onChange={handleChanges} required='required' type='number' min="1" step='5'
                     max="100000"  name='fund_goal' id='fund_goal' />
                 </FormGroup>
                 <FormGroup>
