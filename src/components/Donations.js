@@ -17,7 +17,16 @@ export default function Donations(props){
 
     const submitHandler= evt=> {
         evt.preventDefault();
-        alert('We have received your donation. Thank you!');
+        axios
+            .post("https://ptbw-sta-3.herokuapp.com/api/donations", donation)
+            .then(res => {
+                setDonation(res);
+                console.log(res);
+            })
+            .catch(err => {
+                console.log('This is my error: ', err);
+        })
+        alert(`We have received your ${donation} donation. Thank you!`);
         document.getElementById('btn-container').reset();
     }
 

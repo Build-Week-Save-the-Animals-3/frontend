@@ -45,12 +45,14 @@ function SearchForm(props) {
                 <Link to='/'>Home</Link>
             </nav>
             <h3 className="h3update">Welcome to the search page! Please search for any campaigns you're currently interested in</h3>
-            <form className="input-body" onSubmit={onSubmit}>
-                <input className="inputmargin" onChange={onChange} type="text" placeholder="Location" name="location" />
-                <input className="inputmargin" onChange={onChange} type="text" placeholder="Species" name="species" />
-                <input className="inputmargin" onChange={onChange} type="text" placeholder="Issue" name="issue" />
-                <button className="button" type="submit">Search</button>
-            </form>
+            <div className='input-container'>
+                <form className="input-body" onSubmit={onSubmit}>
+                    <input className="inputmargin" onChange={onChange} type="text" placeholder="Location" name="location" />
+                    <input className="inputmargin" onChange={onChange} type="text" placeholder="Species" name="species" />
+                    <input className="inputmargin" onChange={onChange} type="text" placeholder="Issue" name="issue" />
+                    <button className="button" type="submit">Search</button>
+                </form>
+            </div>
         </div>
     )
 }
