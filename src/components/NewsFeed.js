@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import { getCampaigns, clearSearchedCampaigns } from "../actions/actions";
 
 function NewsFeed(props) {
-    console.log(props.filteredCampaigns);
     useEffect(()=> {
         props.getCampaigns();
         props.clearSearchedCampaigns();
