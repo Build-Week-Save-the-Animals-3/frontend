@@ -15,13 +15,13 @@ function SearchForm(props) {
     }
 
     let searched = props.campaigns.filter(i => {
-        if(i.location.toLowerCase().includes(search.location.toLowerCase())) {
+        if(i.location === search.location) {
             return i;
         }
-        else if(i.description.toLowerCase().includes(search.issue.toLowerCase())) {
+        else if(i.description === search.issue) {
             return i;
         } 
-        else if(i.title.toLowerCase().includes(search.species.toLowerCase())) {
+        else if(i.title === search.species) {
             return i;
         }
         else return;
