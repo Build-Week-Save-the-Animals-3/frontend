@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { getSearchedCampaigns, getCampaigns } from "../actions/actions";
+import { getSearchedCampaigns, getCampaigns, clearSearchedCampaigns } from "../actions/actions";
 
 function SearchForm(props) {
-    /*useEffect(() => {
-        props.getCampaigns();
-    }, [])*/
-    
+    useEffect(() => {
+        props.clearSearchedCampaigns();
+    }, [])
+
     const [search, setSearch] = useState({ location: "", species: "", issue: "" })
     const onChange = event => {
         setSearch({ ...search, [event.target.name]: event.target.value });
         
     }
-
     let searched = props.campaigns.filter(i => {
         if(i.location === search.location) {
             return i;
@@ -24,16 +23,19 @@ function SearchForm(props) {
         else if(i.title === search.species) {
             return i;
         }
-        else return;
+        else return null;
     });
 
     const onSubmit = event => {
         event.preventDefault();
-        props.getSearchedCampaigns(searched);
         
         setTimeout(() => {
+            props.getSearchedCampaigns(searched);
+        }, 50)
+
+        setTimeout(() => {
             props.history.push("/searchedresults")
-        }, 200)
+        }, 300)
         
 
 
@@ -61,4 +63,4 @@ const MapStateToProps = state => {
         filtered: state.filteredCampaigns
     }
 }
-export default connect(MapStateToProps, { getSearchedCampaigns: getSearchedCampaigns, getCampaigns: getCampaigns })(SearchForm);
+export default connect(MapStateToProps, { getSearchedCampaigns: getSearchedCampaigns, getCampaigns: getCampaigns, clearSearchedCampaigns: clearSearchedCampaigns })(SearchForm);

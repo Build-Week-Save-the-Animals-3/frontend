@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import NewsFeed_Card from "./NewsFeed_Card";
@@ -18,8 +18,9 @@ function SearchedCampaigns(props) {
             
             
         )
-    } else return (
-        <div className='news-container'>
+    }   else return (
+        
+            <div className='news-container'>
                 <nav className='nav-bar'>
                     <Link to='/'>Home</Link>
                     <Link to='/search'>Search</Link>
