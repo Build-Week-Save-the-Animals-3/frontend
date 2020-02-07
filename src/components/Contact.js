@@ -1,8 +1,19 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import {Jumbotron, Button} from 'reactstrap';
 
 function Contact() {
+
+
+    const [contact, setContact]= useState('');
+
+    const handleChanges= event=> {
+        event.preventDefault();
+        setContact(event.target.value);
+        console.log(event.target.value);
+    }
+
+
     return (
         <div className='contact-cont'>
             <nav className='nav-bar'>
@@ -19,7 +30,8 @@ function Contact() {
                 Contact Information
                 <label htmlFor='firstname'>
 
-                    <input 
+                    <input
+                    onChange={handleChanges} 
                     className='input'
                     id="firstname"
                     type="text"
@@ -31,6 +43,7 @@ function Contact() {
                 <label htmlFor='lastname'>
 
                     <input 
+                    onChange={handleChanges}
                     className='input'
                     id="lastname"
                     type="text"
@@ -42,6 +55,7 @@ function Contact() {
                 <label htmlFor='email'>
 
                     <input 
+                    onChange={handleChanges}
                     className='input'
                     id="email"
                     type="text"
@@ -52,7 +66,7 @@ function Contact() {
                 </label>
 
                 <div className='btn'>
-                    <Button>Subscribe</Button>
+                    <Button type='submit'>Subscribe</Button>
                 </div>
             </form>
         </div>

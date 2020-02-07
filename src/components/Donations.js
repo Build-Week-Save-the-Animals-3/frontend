@@ -1,15 +1,24 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Jumbotron, Button} from 'reactstrap';
 import {Form, Input} from 'reactstrap';
+import axios from 'axios';
 
-export default function Donations() {
+export default function Donations(props){
+
+    const [donation, setDonation]= useState('');
+
+    const handleChanges= event=> {
+        event.preventDefault();
+        setDonation({[event.target.id]: event.target.value});
+        console.log({[event.target.id]: event.target.value});
+    }
+
+    const submitHandler= evt=> {
+        evt.preventDefault();
+    }
+
     return (
         <div className='donation-pg'>
-            {/* <nav className='nav-bar'>
-                <Link to='/'>Newsfeed</Link>
-                <Link to='/opportunities'>Opportunities</Link>
-                <Link to='/contact'>Contact Us</Link>
-            </nav> */}
             <section>
                 <Jumbotron className='big'>
                     <h2>Help Hope Stay Alive!</h2>
@@ -18,12 +27,13 @@ export default function Donations() {
             </section>
             <section className='donations-container'>
                 Donate Now
-                <Form className='btn-container'>
-                    <Input id='five' name='five' type='button' value='$5'/>
-                    <Input id='ten' name='ten' type='button' value='$10'/>
-                    <Input id='twenty-five' name='twenty-five' type='button' value='$25'/>
-                    <Input id='one-hundred' name='one-hundred' type='button' value='$100'/>
-                    <Input
+                <Form onSubmit={submitHandler} className='btn-container'>
+                    <Input onClick={handleChanges} id='five' name='five' type='button' value='$5'/>
+                    <Input onClick={handleChanges} id='ten' name='ten' type='button' value='$10'/>
+                    <Input onClick={handleChanges} id='twenty-five' name='twenty-five' type='button' value='$25'/>
+                    <Input onClick={handleChanges} id='one-hundred' name='one-hundred' type='button' value='$100'/>
+                    <Input 
+                    onChange={handleChanges}
                     className='input'
                     id="donation"
                     type="number"
