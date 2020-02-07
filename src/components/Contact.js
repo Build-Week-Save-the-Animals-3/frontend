@@ -1,8 +1,31 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import {Jumbotron, Button} from 'reactstrap';
 
 function Contact() {
+
+
+    const [contact, setContact]= useState({
+        firstname: '',
+        lastname: '',
+        email: '',
+    });
+
+    const handleChanges= event=> {
+        event.preventDefault();
+        setContact({
+            ...contact,
+            [event.target.name]: event.target.value});
+        console.log({[event.target.name]: event.target.value});
+    }
+
+    const submitHandler= evt=> {
+        evt.preventDefault();
+        alert('We have received your information. Thank you!');
+        document.getElementById('contact-form').reset();
+    }
+
+
     return (
         <div className='contact-cont'>
             <nav className='nav-bar'>
@@ -15,11 +38,12 @@ function Contact() {
                     <p>Get involved in the movement when you contact us!</p>
                 </Jumbotron>
             </section>
-            <form className='contact-form'>
+            <form onSubmit={submitHandler} id='contact-form' className='contact-form'>
                 Contact Information
                 <label htmlFor='firstname'>
 
-                    <input 
+                    <input
+                    onChange={handleChanges} 
                     className='input'
                     id="firstname"
                     type="text"
@@ -31,6 +55,7 @@ function Contact() {
                 <label htmlFor='lastname'>
 
                     <input 
+                    onChange={handleChanges}
                     className='input'
                     id="lastname"
                     type="text"
@@ -42,9 +67,10 @@ function Contact() {
                 <label htmlFor='email'>
 
                     <input 
+                    onChange={handleChanges}
                     className='input'
                     id="email"
-                    type="text"
+                    type="email"
                     name="email"
                     placeholder="email@yahoo.com"
                     />
@@ -52,7 +78,7 @@ function Contact() {
                 </label>
 
                 <div className='btn'>
-                    <Button>Subscribe</Button>
+                    <Button type='submit'>Subscribe</Button>
                 </div>
             </form>
         </div>

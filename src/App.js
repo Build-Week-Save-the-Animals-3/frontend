@@ -8,6 +8,8 @@ import Register from "./components/Register";
 import UpdateCampaign from "./components/UpdateCampaign";
 import NewCampaign from './components/NewCampaign';
 import NewsFeed from './components/NewsFeed';
+
+
 import SearchForm from './components/SearchForm';
 import SearchedCampaigns from './components/SearchedCampaigns';
 
@@ -39,3 +41,30 @@ function App() {
 
 export default App;
 
+
+
+// Francois code
+
+// Needed to delete to resolve conflicts
+
+// import {Route} from 'react-router-dom';
+// import ContactForm from './components/Contact'
+// import Opportunities from './components/Opportunities';
+// import Campaign from './components/Campaign';
+
+
+// function App() {
+//   return(
+//     <div className="App">
+//       <div className='header'>
+//       <h1><i className="fas fa-key key"></i><span>key</span>Conservation</h1>
+//       <Route exact path='/' component={NewsFeed} />
+//       <Route path='/contact' component={ContactForm} />
+//       <Route exact path='/campaign/:id' component={Campaign} />
+//       <Route exact path='/opportunities' component={Opportunities} />
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default App;
