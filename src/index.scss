@@ -524,4 +524,29 @@ table {
 		}
 	}
 }
+.link {
+	display: block;
+}
+.input-body {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	align-items: center;
+	margin-top: 2%;
+}
+.button {
+	margin-top: 1%;
+	background-color: #F1BB87;
+}
 
+.inputmargin {
+	margin-top: 30px;
+	background-color: #F1BB87;
+
+}
+
+.h3update {
+	text-align: center;
+	color: darkturquoise;
+	margin-top: 2%;
+}
