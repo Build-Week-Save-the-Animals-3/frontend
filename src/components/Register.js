@@ -5,7 +5,7 @@ import { Link, Redirect } from "react-router-dom";
 
 function Register(props) {
     const loggedIn = localStorage.getItem("token");
-    const [info, setInfo] = useState({ username: "", password: "" })
+    const [info, setInfo] = useState({ name: "", password: "" })
     const [check, setCheck] = useState({ checked: false })
     const onChange = event => {
         setInfo({ ...info, [event.target.name]: event.target.value })
@@ -22,12 +22,17 @@ function Register(props) {
             event.preventDefault();
             props.registerSupporter(info);
             console.log(info, check);
-            props.history.push("/");
+            setTimeout(() => {
+                props.history.push("/");
+            }, 3000)
+
         } else {
             event.preventDefault();
             props.registerOrganization(info);
             console.log(info, check);
-            props.history.push("/");
+            setTimeout(() => {
+                props.history.push("/");
+            }, 3000)
         }
     }
     if(!loggedIn) {
@@ -40,7 +45,7 @@ function Register(props) {
             
             <form className='input-body' onSubmit={onSubmit}>
                 <label>Username: </label>
-                <input className="inputmargin" onChange={onChange} type="text" placeholder="Username" name="username" />
+                <input className="inputmargin" onChange={onChange} type="text" placeholder="Username" name="name" />
                 <label>Password: </label>
                 <input className="inputmargin" onChange={onChange} type="password" placeholder="Password" name="password" />
                 <label>Organization? </label>

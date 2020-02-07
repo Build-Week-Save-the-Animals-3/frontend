@@ -19,7 +19,7 @@ function App() {
     <Router>
       <div>
         <Switch>
-          <Route exact path="/" component={NewsFeed} />
+          <PrivateRoute exact path="/" component={NewsFeed} />
           <Route exact path="/campaign/:id" render={props => {
             return <Campaign {...props} />
           }} />
@@ -28,7 +28,7 @@ function App() {
           }} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
-          <Route exact path="/create-campaign" component={NewCampaign} />
+          <PrivateRoute exact path="/create-campaign" component={NewCampaign} />
           <Route exact path="/search" render={props => {
             return <SearchForm {...props} />
           }} />

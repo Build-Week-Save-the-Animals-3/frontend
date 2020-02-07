@@ -14,14 +14,23 @@ export const initialState = {
     supporter: {
         support: false,
         username: "",
+        id: null,
         password: "",
         loggedIn: false,
-        token: ""
+        token: "",
+        loggedIn: false,
+        message: ""
+        
     },
 
     organization: {
+        org: false,
         id: null,
-        name: ""
+        name: "",
+        password: "",
+        token: "",
+        loggedIn: false,
+        message: ""
     },
     
     campaigns: [
@@ -70,7 +79,7 @@ export function reducer(state = initialState, action) {
                     ...state.supporter,
                     support: true,
                     loggedIn: true,
-                    token: ""
+                    message: action.payload.message
                 }
             }
             case FETCH_SUPPORTER_LOGIN_FAILURE:
@@ -92,8 +101,10 @@ export function reducer(state = initialState, action) {
                         ...state.organization,
                         org: true,
                         loggedIn: true,
-                        token: ""
+                        message: action.payload.message
                     }
+                    
+                    
                 }
             case FETCH_ORGANIZATION_LOGIN_FAILURE:
                 return {
@@ -146,7 +157,10 @@ export function reducer(state = initialState, action) {
                     isFetching: false,
                     supporter: {
                         ...state.supporter,
-                        support: true
+                        support: true,
+                        id: action.payload.id,
+                        email: action.payload.email,
+                        password: action.payload.password
                     }
                 }
             case REGISTER_SUPPORTER_FAILURE:
@@ -166,7 +180,10 @@ export function reducer(state = initialState, action) {
                     isFetching: false,
                     organization: {
                         ...state.organization,
-                        org: true
+                        org: true,
+                        id: action.payload.id,
+                        name: action.payload.name,
+                        password: action.payload.password
                     }
                 }
             case REGISTER_ORGANIZATION_FAILURE:

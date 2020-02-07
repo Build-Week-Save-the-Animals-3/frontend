@@ -42,7 +42,7 @@ function NewCampaign(props) {
             <nav className='nav-bar'>
                 <Link to='/'>Home</Link>
             </nav>
-            <h3 class="h3update">Create New Campaign</h3>
+            <h3 className="h3update">Create New Campaign</h3>
             <form className="input-body" onSubmit={onSubmit}>
                 <input className="inputmargin" onChange={onChange} type="text" name="title" placeholder="Title" />
                 <input className="inputmargin" onChange={onChange} type="text" name="description" placeholder="Description" />
