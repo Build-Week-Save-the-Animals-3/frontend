@@ -11,6 +11,7 @@ import NewsFeed from './components/NewsFeed';
 import SearchForm from './components/SearchForm';
 import SearchedCampaigns from './components/SearchedCampaigns';
 
+
 function App() {
   return (
     <Router>

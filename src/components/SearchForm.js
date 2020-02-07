@@ -1,41 +1,47 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import { getSearchedCampaigns, getCampaigns } from "../actions/actions";
+import { getSearchedCampaigns, getCampaigns, clearSearchedCampaigns } from "../actions/actions";
 
 function SearchForm(props) {
-    /*useEffect(() => {
-        props.getCampaigns();
-    }, [])*/
-    
+    useEffect(() => {
+        props.clearSearchedCampaigns();
+    }, [])
+    setTimeout(() => {
+        console.log(props.filtered);
+    }, 500)
+
     const [search, setSearch] = useState({ location: "", species: "", issue: "" })
     const onChange = event => {
         setSearch({ ...search, [event.target.name]: event.target.value });
         
     }
-
-    let searched = props.campaigns.filter(i => {
-        if(i.location.toLowerCase().includes(search.location.toLowerCase())) {
+    let searched = props.campaigns.map(i => {
+        
+        if(i.location.toLowerCase() === search.location.toLowerCase()) {
             return i;
         }
-        else if(i.description.toLowerCase().includes(search.issue.toLowerCase())) {
+        else if(i.description.toLowerCase() === search.issue.toLowerCase()) {
             return i;
         } 
-        else if(i.title.toLowerCase().includes(search.species.toLowerCase())) {
+        else if(i.title.toLowerCase() === search.species.toLowerCase()) {
             return i;
         }
-        else return;
+        else return null;
     });
 
     const onSubmit = event => {
         event.preventDefault();
-        props.getSearchedCampaigns(searched);
         
         setTimeout(() => {
-            props.history.push("/searchedresults")
-        }, 200)
+            console.log(searched);
+        }, 100)
         
-
+        
+        props.getSearchedCampaigns(searched);
+            
+        props.history.push("/searchedform")
+       
 
     }
 
@@ -61,4 +67,4 @@ const MapStateToProps = state => {
         filtered: state.filteredCampaigns
     }
 }
-export default connect(MapStateToProps, { getSearchedCampaigns: getSearchedCampaigns, getCampaigns: getCampaigns })(SearchForm);
+export default connect(MapStateToProps, { getSearchedCampaigns: getSearchedCampaigns, getCampaigns: getCampaigns, clearSearchedCampaigns: clearSearchedCampaigns })(SearchForm);
