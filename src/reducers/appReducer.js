@@ -13,12 +13,11 @@ export const initialState = {
 
     supporter: {
         support: false,
-        username: "",
+        name: "",
         id: null,
         password: "",
         loggedIn: false,
         token: "",
-        loggedIn: false,
         message: ""
         
     },
@@ -159,7 +158,7 @@ export function reducer(state = initialState, action) {
                         ...state.supporter,
                         support: true,
                         id: action.payload.id,
-                        email: action.payload.email,
+                        name: action.payload.name,
                         password: action.payload.password
                     }
                 }

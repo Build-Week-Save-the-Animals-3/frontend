@@ -1,6 +1,5 @@
 import axiosWithAuth from "../components/axiosAuth";
 import axios from "axios";
-import axioswithAuth from "../components/axiosAuth";
 
 export const FETCH_SUPPORTER_LOGIN_SUCCESS = "FETCH_SUPPORTER_LOGIN_SUCCESS";
 export const FETCH_SUPPORTER_LOGIN_FAILURE = "FETCH_SUPPORTER_LOGIN_FAILURE";
@@ -35,21 +34,21 @@ export const FETCH_SEARCH_FAILURE = "FETCH_SEARCH_FAILURE";
 export const DELETE_FILTERED_CAMPAIGNS = "DELETE_FILTERED_CAMPAIGNS";
 
 export const getSupporterLogin = credentials => {
-        return dispatch => {
-            dispatch({ type: FETCH_SUPPORTER_LOGIN_START});
-            axios.post("https://ptbw-sta-3.herokuapp.com/auth/supps/login", credentials)
-                .then(res => {
-                    console.log(res);
-                    dispatch({ type: FETCH_SUPPORTER_LOGIN_SUCCESS, payload: res.data})
-                    localStorage.setItem("token", res.data.token);
-                })
-                .catch(error => {
-                    console.log(error);
-                    dispatch({ type: FETCH_SUPPORTER_LOGIN_FAILURE, payload: error})
-                })
+    return dispatch => {
+        dispatch({ type: FETCH_SUPPORTER_LOGIN_START});
+        axios.post("https://ptbw-sta-3.herokuapp.com/auth/supps/login", credentials)
+            .then(res => {
+                console.log(res);
+                dispatch({ type: FETCH_SUPPORTER_LOGIN_SUCCESS, payload: res.data})
+                localStorage.setItem("token", res.data.token);
+            })
+            .catch(error => {
+                console.log(error);
+                dispatch({ type: FETCH_SUPPORTER_LOGIN_FAILURE, payload: error})
+            })
 
-        }
     }
+}
 
 export const getOrganizationLogin = credentials => {
     return dispatch => {
