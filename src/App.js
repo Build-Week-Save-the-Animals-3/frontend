@@ -8,6 +8,8 @@ import Register from "./components/Register";
 import UpdateCampaign from "./components/UpdateCampaign";
 import NewCampaign from './components/NewCampaign';
 import NewsFeed from './components/NewsFeed';
+import Opportunities from './components/Opportunities';
+import ContactForm from './components/Contact';
 
 
 import SearchForm from './components/SearchForm';
@@ -20,6 +22,8 @@ function App() {
       <div>
         <Switch>
           <PrivateRoute exact path="/" component={NewsFeed} />
+          <Route exact path='/opportunities' component={Opportunities} />
+          <Route path='/contact' component={ContactForm} />
           <Route exact path="/campaign/:id" render={props => {
             return <Campaign {...props} />
           }} />

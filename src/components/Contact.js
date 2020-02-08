@@ -22,6 +22,11 @@ function Contact() {
     const submitHandler= evt=> {
         evt.preventDefault();
         alert('We have received your information. Thank you!');
+        setContact({
+        firstname: '',
+        lastname: '',
+        email: '',
+        });
         document.getElementById('contact-form').reset();
     }
 
