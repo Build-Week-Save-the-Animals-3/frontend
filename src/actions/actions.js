@@ -1,6 +1,5 @@
 import axiosWithAuth from "../components/axiosAuth";
 import axios from "axios";
-import axioswithAuth from "../components/axiosAuth";
 
 export const FETCH_SUPPORTER_LOGIN_SUCCESS = "FETCH_SUPPORTER_LOGIN_SUCCESS";
 export const FETCH_SUPPORTER_LOGIN_FAILURE = "FETCH_SUPPORTER_LOGIN_FAILURE";
@@ -32,30 +31,33 @@ export const FETCH_SINGLE_CAMPAIGN_FAILURE = "FETCH_SINGLE_CAMPAIGN_FAILURE";
 export const FETCH_SEARCH_START = "FETCH_SEARCH_START";
 export const FETCH_SEARCH_SUCCESS = "FETCH_SEARCH_SUCCESS";
 export const FETCH_SEARCH_FAILURE = "FETCH_SEARCH_FAILURE";
+export const DELETE_FILTERED_CAMPAIGNS = "DELETE_FILTERED_CAMPAIGNS";
 
-export const getSupporterLogin = credentials => dispatch => {
-    dispatch({ type: FETCH_SUPPORTER_LOGIN_START});
-        return function(dispatch) {
-            return axiosWithAuth.post("urlhere", credentials)
-                .then(res => {
-                    console.log(res);
-                    dispatch({ type: FETCH_SUPPORTER_LOGIN_SUCCESS, payload: res.data})
-                })
-                .catch(error => {
-                    console.log(error);
-                    dispatch({ type: FETCH_SUPPORTER_LOGIN_FAILURE, payload: error})
-                })
+export const getSupporterLogin = credentials => {
+    return dispatch => {
+        dispatch({ type: FETCH_SUPPORTER_LOGIN_START});
+        axios.post("https://ptbw-sta-3.herokuapp.com/auth/supps/login", credentials)
+            .then(res => {
+                console.log(res);
+                dispatch({ type: FETCH_SUPPORTER_LOGIN_SUCCESS, payload: res.data})
+                localStorage.setItem("token", res.data.token);
+            })
+            .catch(error => {
+                console.log(error);
+                dispatch({ type: FETCH_SUPPORTER_LOGIN_FAILURE, payload: error})
+            })
 
-        }
     }
+}
 
-export const getOrganizationLogin = credentials => dispatch => {
-    dispatch({ type: FETCH_ORGANIZATION_LOGIN_START });
-    return function(dispatch) {
-        return axiosWithAuth.post("urlhere", credentials)
+export const getOrganizationLogin = credentials => {
+    return dispatch => {
+        dispatch({ type: FETCH_ORGANIZATION_LOGIN_START });
+        axios.post("https://ptbw-sta-3.herokuapp.com/auth/users/login", credentials)
             .then(res => {
                 console.log(res);
                 dispatch({ type: FETCH_ORGANIZATION_LOGIN_SUCCESS, payload: res.data})
+                localStorage.setItem("token", res.data.token);
             })
             .catch(error => {
                 console.log(error);
@@ -97,13 +99,14 @@ export const submitCampaign = credentials =>  {
     
 }
 
-export const registerSupporter = credentials => dispatch => {
-    dispatch({ type: REGISTER_SUPPORTER_START });
-    return function(dispatch) {
-        return axios.post("urlhere", credentials)
+export const registerSupporter = credentials => {
+    return dispatch => {
+        dispatch({ type: REGISTER_SUPPORTER_START });
+        axios.post("https://ptbw-sta-3.herokuapp.com/auth/supps/register", credentials)
             .then(res => {
                 console.log(res);
                 dispatch({ type: REGISTER_SUPPORTER_SUCCESS, payload: res.data})
+                
             })
             .catch(error => {
                 console.log(error);
@@ -112,13 +115,14 @@ export const registerSupporter = credentials => dispatch => {
     }
 }
 
-export const registerOrganization = credentials => dispatch => {
-    dispatch({ type: REGISTER_ORGANIZATION_START });
-    return function(dispatch) {
-        return axios.post("urlhere", credentials)
+export const registerOrganization = credentials => {
+    return dispatch => {
+        dispatch({ type: REGISTER_ORGANIZATION_START });
+        axios.post("https://ptbw-sta-3.herokuapp.com/auth/users/register", credentials)
             .then(res => {
                 console.log(res);
                 dispatch({ type: REGISTER_ORGANIZATION_SUCCESS, payload: res.data })
+                
             })
             .catch(error => {
                 console.log(error);
@@ -159,5 +163,11 @@ export const getSearchedCampaigns = data => {
         if(data.length > 0) {
             return dispatch({ type: FETCH_SEARCH_SUCCESS, payload: data})
         } else return dispatch({ type: FETCH_SEARCH_FAILURE, payload: "The search came up empty!"})
+    }
+}
+
+export const clearSearchedCampaigns = () => {
+    return dispatch => {
+        dispatch({ type: DELETE_FILTERED_CAMPAIGNS })
     }
 }

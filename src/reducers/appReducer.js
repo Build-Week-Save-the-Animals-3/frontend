@@ -3,7 +3,7 @@ import { FETCH_SUPPORTER_LOGIN_SUCCESS, FETCH_SUPPORTER_LOGIN_FAILURE, FETCH_SUP
     DELETE_CAMPAIGN_FAILURE, FETCH_ORGANIZATION_LOGIN_SUCCESS, FETCH_ORGANIZATION_LOGIN_FAILURE, FETCH_ORGANIZATION_LOGIN_START, FETCH_CAMPAIGN_START, 
     REGISTER_ORGANIZATION_SUCCESS, REGISTER_ORGANIZATION_FAILURE, REGISTER_ORGANIZATION_START, REGISTER_SUPPORTER_SUCCESS, REGISTER_SUPPORTER_FAILURE,
     REGISTER_SUPPORTER_START, FETCH_SINGLE_CAMPAIGN_FAILURE, FETCH_SINGLE_CAMPAIGN_SUCCESS,  FETCH_SINGLE_CAMPAIGN_START, FETCH_SEARCH_FAILURE,
-    FETCH_SEARCH_SUCCESS, FETCH_SEARCH_START } from "../actions/actions";
+    FETCH_SEARCH_SUCCESS, FETCH_SEARCH_START, DELETE_FILTERED_CAMPAIGNS } from "../actions/actions";
 
 export const initialState = {
     
@@ -13,15 +13,23 @@ export const initialState = {
 
     supporter: {
         support: false,
-        username: "",
+        name: "",
+        id: null,
         password: "",
         loggedIn: false,
-        token: ""
+        token: "",
+        message: ""
+        
     },
 
     organization: {
+        org: false,
         id: null,
-        name: ""
+        name: "",
+        password: "",
+        token: "",
+        loggedIn: false,
+        message: ""
     },
     
     campaigns: [
@@ -49,11 +57,7 @@ export const initialState = {
             completed: false
     },
 
-    filteredCampaigns: [
-        {
-
-        }
-    ]
+    filteredCampaigns: []
 
     
 }
@@ -74,7 +78,7 @@ export function reducer(state = initialState, action) {
                     ...state.supporter,
                     support: true,
                     loggedIn: true,
-                    token: ""
+                    message: action.payload.message
                 }
             }
             case FETCH_SUPPORTER_LOGIN_FAILURE:
@@ -96,8 +100,10 @@ export function reducer(state = initialState, action) {
                         ...state.organization,
                         org: true,
                         loggedIn: true,
-                        token: ""
+                        message: action.payload.message
                     }
+                    
+                    
                 }
             case FETCH_ORGANIZATION_LOGIN_FAILURE:
                 return {
@@ -150,7 +156,10 @@ export function reducer(state = initialState, action) {
                     isFetching: false,
                     supporter: {
                         ...state.supporter,
-                        support: true
+                        support: true,
+                        id: action.payload.id,
+                        name: action.payload.name,
+                        password: action.payload.password
                     }
                 }
             case REGISTER_SUPPORTER_FAILURE:
@@ -170,7 +179,10 @@ export function reducer(state = initialState, action) {
                     isFetching: false,
                     organization: {
                         ...state.organization,
-                        org: true
+                        org: true,
+                        id: action.payload.id,
+                        name: action.payload.name,
+                        password: action.payload.password
                     }
                 }
             case REGISTER_ORGANIZATION_FAILURE:
@@ -247,6 +259,11 @@ export function reducer(state = initialState, action) {
                     ...state,
                     isFetching: false,
                     error: action.payload
+                }
+            case DELETE_FILTERED_CAMPAIGNS:
+                return {
+                    ...state,
+                    filteredCampaigns: []
                 }
         default:
             return state;

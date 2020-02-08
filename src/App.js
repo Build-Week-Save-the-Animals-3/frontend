@@ -15,12 +15,13 @@ import ContactForm from './components/Contact';
 import SearchForm from './components/SearchForm';
 import SearchedCampaigns from './components/SearchedCampaigns';
 
+
 function App() {
   return (
     <Router>
       <div>
         <Switch>
-          <Route exact path="/" component={NewsFeed} />
+          <PrivateRoute exact path="/" component={NewsFeed} />
           <Route exact path='/opportunities' component={Opportunities} />
           <Route path='/contact' component={ContactForm} />
           <Route exact path="/campaign/:id" render={props => {
@@ -31,7 +32,7 @@ function App() {
           }} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
-          <Route exact path="/create-campaign" component={NewCampaign} />
+          <PrivateRoute exact path="/create-campaign" component={NewCampaign} />
           <Route exact path="/search" render={props => {
             return <SearchForm {...props} />
           }} />

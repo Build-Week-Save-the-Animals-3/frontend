@@ -5,7 +5,7 @@ import { Link, Redirect } from "react-router-dom";
 
 function Login(props) {
     console.log(props);
-    const [credentials, setCredentials] = useState({ username: "", password: "" })
+    const [credentials, setCredentials] = useState({ name: "", password: "" })
     const [check, setCheck] = useState({ checked: false })
     const loggedIn = localStorage.getItem("token");
     const onChange = event => {
@@ -23,13 +23,17 @@ function Login(props) {
             event.preventDefault();
             props.getSupporterLogin(credentials);
             console.log(credentials, check);
-            props.history.push("/")
+            setTimeout(() => {
+                props.history.push("/");
+            }, 3000)
             
         } else {
             event.preventDefault();
             props.getOrganizationLogin(credentials);
             console.log(credentials, check);
-            props.history.push("/")
+            setTimeout(() => {
+                props.history.push("/");
+            }, 3000)
             
         }
     }
@@ -44,7 +48,7 @@ function Login(props) {
             <form className="input-body" onSubmit={onSubmit}>
                 
                 <label>Username</label>
-                <input className="inputmargin" onChange={onChange} type="text" name="username" placeholder="Username" />
+                <input className="inputmargin" onChange={onChange} type="text" name="name" placeholder="Username" />
             
             
                 <label>Password</label>

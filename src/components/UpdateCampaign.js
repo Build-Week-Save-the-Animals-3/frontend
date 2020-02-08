@@ -5,32 +5,12 @@ import { connect } from "react-redux";
 import "../index.scss";
 import { Link } from "react-router-dom";
 
-const initialCampaign = {
-    id: 0,
-    title: "",
-    description: "",
-    urgency_level: "",
-    location: "",
-    deadline: "",
-    fund_goal: undefined,
-    completed: false,
-    token: ""
-}
 
 function UpdateCampaign(props) {
     
     useEffect(() => {
         props.getCurrentCampaign(props.match.params.id);
         
-        /*axios
-            .get(`https://ptbw-sta-3.herokuapp.com/api/campaigns/${props.match.params.id}`)
-            .then(response => {
-                console.log(response);
-                setCampaign(response.data)
-            })
-            .catch(error => {
-                console.log(error);
-            })*/
     }, [])
 
     const [campaign, setCampaign] = useState(props.currentCampaign);
